@@ -8,7 +8,7 @@ export const projects = [
     description:
       "A comprehensive, lightning-fast school portal designed with semantic web structures to optimize performance, accessibility, and community engagement.",
     tags: ["HTML5", "CSS3", "Vanilla JS", "Responsive Design"],
-    status: null,
+    status: "Always Active",
   },
   {
     id: 2,
@@ -19,25 +19,25 @@ export const projects = [
     description:
       "A highly strategic productivity application allowing students to monitor syllabus progress. Features granular, interactive chapter-wise metrics and dynamic percentage tracking.",
     tags: ["JavaScript (ES6+)", "Algorithms", "Progress UI", "CSS Grid"],
-    status: null,
+    status: "Tracks Study Progress",
   },
   {
     id: 3,
     title: "Just Movie Download",
     role: "Full-Stack Integration Developer",
-    roleNote: null,
+    roleNote: "First connection of Bot",
     url: "https://justmoviedownload.vercel.app/",
     description:
       "A lightweight utility web platform featuring automated custom data handling. Implemented an asynchronous architecture linking front-end actions straight to Telegram Bot API endpoints to pipe structural data securely to distinct Chat IDs.",
     tags: ["API Integration", "Telegram Bot API", "Async JS", "Secure Routing"],
-    status: null,
+    status: "Fully Functional",
   },
   {
     id: 4,
     title: "AVIORCART",
     role: "Founder & Operations Engineer",
     roleNote: "E-Commerce Platform",
-    url: null,
+    url: "https://aviorcart.vercel.app",
     description:
       "Bootstrapped a highly functional, nationwide Shopify e-commerce business with zero initial funds. Managed end-to-end setups: completed full digital video and PAN verifications, integrated PayU payment routing, and established logistics pipelines via Delhivery. Successfully fulfilled and shipped consumer orders across Madhya Pradesh, Gujarat, Assam, Bengal, Haryana, and Rajasthan at a profit.",
     tags: ["Shopify Ecosystem", "PayU Gateway", "Delhivery API", "Supply Chain Logistics"],
