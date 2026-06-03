@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Parth Rajpurohit — Full-stack web developer and 12th-grade student building high-impact web experiences since Standard 5. Projects, skills, and certifications." />
+  <meta name="author" content="Parth Rajpurohit" />
+  <meta property="og:title" content="Parth Rajpurohit — Developer Portfolio" />
+  <meta property="og:description" content="Engineering high-impact web experiences since age 10. View live projects, skills, and certifications." />
+  <meta property="og:type" content="website" />
+  <title>Parth Rajpurohit — Developer Portfolio</title>
+
+  <!-- Remix Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Portfolio Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Ambient Background ─────────────────────────────────── -->
+  <div class="ambient-orb orb-1" aria-hidden="true"></div>
+  <div class="ambient-orb orb-2" aria-hidden="true"></div>
+  <div class="ambient-orb orb-3" aria-hidden="true"></div>
+
+  <!-- ── Mobile Menu Overlay ────────────────────────────────── -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" role="dialog" aria-modal="true">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+      <i class="ri-close-line"></i>
+    </button>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certs</a>
+  </nav>
+
+  <!-- ── Sticky Navbar ──────────────────────────────────────── -->
+  <header id="navbar" role="banner">
+    <div class="nav-inner container">
+      <a href="#hero" class="nav-logo" aria-label="Parth Rajpurohit — Home">
+        Parth<span>.</span>dev
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certs</a></li>
+          <li>
+            <a href="mailto:your@email.com" class="nav-cta" aria-label="Contact Parth Rajpurohit">
+              <i class="ri-send-plane-line" style="font-size:0.8rem; margin-right:4px;"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button
+        class="nav-hamburger"
+        id="nav-hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── HERO SECTION ───────────────────────────────────────── -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left: Copy -->
+        <div class="hero-content">
+          <div class="hero-badge" aria-live="polite" aria-label="Current role">
+            <span class="hero-badge-text">Full-Stack Web Developer</span>
+          </div>
+
+          <h1 class="hero-headline" id="hero-heading">
+            <span class="accent-name">Parth Rajpurohit</span>
+            <span class="accent-sub"> — Engineering<br/>High-Impact Web Experiences</span>
+            <br/>Since Age&nbsp;10.
+          </h1>
+
+          <p class="hero-bio">
+            <strong>12th-grade student</strong> in <strong>PCM + Informatics Practices</strong> at Orion International School, Bhopal.
+            Captivated by structural programming and web architecture since early childhood —
+            shipping real, deployed interfaces since Standard 5 using nothing but documentation,
+            curiosity, and relentless iteration.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <i class="ri-code-box-line"></i>
+              View Projects
+            </a>
+            <a href="#about" class="btn-secondary">
+              <i class="ri-user-line"></i>
+              About Me
+            </a>
+          </div>
+
+          <div class="hero-stats" role="list" aria-label="Key statistics">
+            <div class="stat-item" role="listitem">
+              <span class="stat-value">10+</span>
+              <span class="stat-label">Yrs Building</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-value">4+</span>
+              <span class="stat-label">Live Projects</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-value">6+</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Terminal Card Visual -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-card">
+            <div class="terminal-topbar">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="terminal-title">parth@portfolio ~ node -v</span>
+            </div>
+            <div class="terminal-body">
+              <div class="t-line">
+                <span class="t-prompt">$</span>
+                <span class="t-cmd">whoami</span>
+              </div>
+              <div class="t-line">
+                <span class="t-out">parth_rajpurohit</span>
+              </div>
+              <div class="t-blank"></div>
+              <div class="t-line">
+                <span class="t-prompt">$</span>
+                <span class="t-cmd">cat profile.json</span>
+              </div>
+              <div class="t-line">
+                <span class="t-out"><span class="t-key">"grade"</span>: <span class="t-val">"XII — PCM + IP"</span>,</span>
+              </div>
+              <div class="t-line">
+                <span class="t-out"><span class="t-key">"city"</span>: <span class="t-val">"Bhopal, MP, India"</span>,</span>
+              </div>
+              <div class="t-line">
+                <span class="t-out"><span class="t-key">"started"</span>: <span class="t-val">"Standard 5 (Self-taught)"</span>,</span>
+              </div>
+              <div class="t-line">
+                <span class="t-out"><span class="t-key">"status"</span>: <span class="t-val">"Open to opportunities"</span></span>
+              </div>
+              <div class="t-blank"></div>
+              <div class="t-line">
+                <span class="t-prompt">$</span>
+                <span class="t-cmd">ls ./projects/</span>
+              </div>
+              <div class="t-line">
+                <span class="t-out" style="color: #a5b4fc;">igps-bhopal/ study-tracker/ movie-dl/ aviorcart/</span>
+              </div>
+              <div class="t-blank"></div>
+              <div class="t-line">
+                <span class="t-prompt">$</span>
+                <span class="t-cmd">&nbsp;<span class="t-cursor"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT SECTION ──────────────────────────────────────── -->
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Background</p>
+          <h2 class="section-title" id="about-heading">Who is <em>Parth</em>?</h2>
+        </div>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Sidebar -->
+        <aside class="about-sidebar reveal">
+          <div class="about-avatar" role="img" aria-label="Parth Rajpurohit initials PR">PR</div>
+          <div>
+            <p class="about-name">Parth Rajpurohit</p>
+            <p class="about-location">
+              <i class="ri-map-pin-line" aria-hidden="true"></i>
+              Bhopal, Madhya Pradesh, India
+            </p>
+            <div class="about-contact-links">
+              <a href="mailto:your@email.com" class="about-contact-link" aria-label="Send email">
+                <i class="ri-mail-line" aria-hidden="true"></i>
+                your@email.com
+              </a>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="about-contact-link" aria-label="GitHub profile">
+                <i class="ri-github-line" aria-hidden="true"></i>
+                github.com/parthdev
+              </a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="about-contact-link" aria-label="LinkedIn profile">
+                <i class="ri-linkedin-line" aria-hidden="true"></i>
+                linkedin.com/in/parth
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Bio -->
+        <div class="about-main">
+          <div class="reveal">
+            <h3><i class="ri-user-star-line" aria-hidden="true"></i> The Long Version</h3>
+            <p>
+              I'm a <strong>12th-grade student specializing in Physics, Chemistry, Mathematics, and Informatics Practices (PCM + IP)</strong> at Orion International School, Bhopal. My obsession with technology and structural programming started before most of my classmates owned a smartphone.
+            </p>
+            <p>
+              In <strong>Standard 5</strong>, I wrote my first web interfaces using only MDN documentation and YouTube tutorials — no bootcamps, no courses, no hand-holding. That habit of learning directly from primary sources stuck. Everything I've built since has been self-directed, problem-first, and deployed to real users.
+            </p>
+            <p>
+              Beyond code, I bootstrapped a real e-commerce business from zero capital — handled PAN & video KYC, integrated payment gateways, negotiated logistics pipelines, and shipped physical orders across six states. That experience taught me systems thinking in a way no textbook ever could.
+            </p>
+            <p>
+              I'm continuously adding to my technical stack: currently deepening expertise in prompt engineering, cybersecurity fundamentals, and scalable JavaScript architectures. When I'm not coding, I'm probably optimizing something that didn't need optimizing.
+            </p>
+          </div>
+
+          <!-- Timeline -->
+          <div class="reveal reveal-delay-2">
+            <h3 style="margin-top: 2rem;"><i class="ri-time-line" aria-hidden="true"></i> Timeline</h3>
+            <div class="about-timeline" role="list" aria-label="Career and education timeline">
+              <div class="timeline-item" role="listitem">
+                <span class="timeline-year">~2016</span>
+                <div class="timeline-content">
+                  <strong>First Line of HTML</strong>
+                  <span>Standard 5. Self-taught via documentation and YouTube. Built the first working webpage.</span>
+                </div>
+              </div>
+              <div class="timeline-item" role="listitem">
+                <span class="timeline-year">2021</span>
+                <div class="timeline-content">
+                  <strong>First Deployed Project</strong>
+                  <span>IGPS Bhopal school portal — a live, production site built for real institutional use.</span>
+                </div>
+              </div>
+              <div class="timeline-item" role="listitem">
+                <span class="timeline-year">2022</span>
+                <div class="timeline-content">
+                  <strong>AVIORCART — E-Commerce Venture</strong>
+                  <span>Bootstrapped a nationwide Shopify business. Shipped orders across 6 states. Profitable. Archived as a learning milestone.</span>
+                </div>
+              </div>
+              <div class="timeline-item" role="listitem">
+                <span class="timeline-year">2023</span>
+                <div class="timeline-content">
+                  <strong>Certifications Sprint</strong>
+                  <span>AI Prompt Engineering (Be10x/IITians), Microsoft AI (Skill India), NIIT Cybersecurity.</span>
+                </div>
+              </div>
+              <div class="timeline-item" role="listitem">
+                <span class="timeline-year">Now</span>
+                <div class="timeline-content">
+                  <strong>Grade XII — PCM + IP</strong>
+                  <span>Completing Higher Secondary Certificate. Building new tools. Open to internships and junior developer roles.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS SECTION ───────────────────────────────────── -->
+  <section id="projects" class="section" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Work</p>
+          <h2 class="section-title" id="projects-heading">Deployed <em>Projects</em></h2>
+        </div>
+      </div>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!--
+        JS renders all project cards here dynamically from data.js.
+        To add a new project: open data.js → add object to the projects array.
+      -->
+      <div id="projects-grid" role="list" aria-label="Portfolio projects"></div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS SECTION ─────────────────────────────────────── -->
+  <section id="skills" class="section" aria-labelledby="skills-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Expertise</p>
+          <h2 class="section-title" id="skills-heading">Technical <em>Skills</em></h2>
+        </div>
+      </div>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!--
+        JS renders all skill cards here dynamically from data.js.
+        To add a new skill group: open data.js → add object to the skills array.
+      -->
+      <div id="skills-container" role="list" aria-label="Technical skills by category"></div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS SECTION ─────────────────────────────── -->
+  <section id="certifications" class="section" aria-labelledby="certs-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Credentials</p>
+          <h2 class="section-title" id="certs-heading"><em>Certifications</em> &amp; Awards</h2>
+        </div>
+      </div>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- Filter Tabs -->
+      <div class="certs-tabs reveal" role="tablist" aria-label="Filter certifications by category">
+        <button class="cert-tab active" data-filter="all" role="tab" aria-selected="true">
+          All Credentials
+        </button>
+        <button class="cert-tab" data-filter="tech" role="tab" aria-selected="false">
+          ⚡ Tech &amp; AI
+        </button>
+        <button class="cert-tab" data-filter="academic" role="tab" aria-selected="false">
+          🎓 Academics &amp; Sports
+        </button>
+      </div>
+
+      <!--
+        JS renders all certification cards here dynamically from data.js.
+        To add a new certificate: open data.js → add object to the certifications array.
+        Drop the certificate image into assets/certs/ using the filename in data.js.
+      -->
+      <div id="certs-grid" role="list" aria-label="Certifications and awards"></div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Parth Rajpurohit</span>
+
+        <p class="footer-copy">
+          Designed &amp; built from scratch · Bhopal, India · 2025
+        </p>
+
+        <div class="footer-social" role="list" aria-label="Social links">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link" role="listitem" aria-label="GitHub">
+            <i class="ri-github-line" aria-hidden="true"></i>
+          </a>
+          <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="social-link" role="listitem" aria-label="LinkedIn">
+            <i class="ri-linkedin-line" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:your@email.com" class="social-link" role="listitem" aria-label="Email">
+            <i class="ri-mail-line" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Application Entry Point ────────────────────────────── -->
+  <!--
+    IMPORTANT: type="module" is required so that data.js exports/imports work.
+    Your web server (VS Code Live Server, Vite, etc.) must serve the files
+    over HTTP — ES module imports won't work if you open index.html directly
+    as a file:// URL in the browser.
+  -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
