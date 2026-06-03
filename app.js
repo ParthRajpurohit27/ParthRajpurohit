@@ -1,343 +1,337 @@
-// ============================================================
-//  app.js — Application logic. Reads from data.js and renders
-//  the full UI. Never edit this file to update portfolio data;
-//  all data lives in data.js instead.
-// ============================================================
-
 import { projects, skills, certifications } from './data.js';
 
-// ── Utility Helpers ──────────────────────────────────────────
-const $ = (selector, parent = document) => parent.querySelector(selector);
-const $$ = (selector, parent = document) => parent.querySelectorAll(selector);
+const $ = (s, p = document) => p.querySelector(s);
+const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 
-// ── Render Projects ──────────────────────────────────────────
+/* ── Cert illustration icons ── */
+const certIcons = {
+  1: { icon: 'ri-sparkling-2-line', label: 'AI · Prompt Eng' },
+  2: { icon: 'ri-microsoft-line',   label: 'Microsoft AI'    },
+  3: { icon: 'ri-shield-keyhole-line', label: 'Cybersecurity'},
+  4: { icon: 'ri-calculator-line',  label: 'Abacus · UCMAS'  },
+  5: { icon: 'ri-medal-line',       label: 'Martial Arts'    },
+  6: { icon: 'ri-graduation-cap-line', label: 'CBSE'         },
+};
+
+/* ── Render Projects ── */
 function renderProjects() {
-  const container = $('#projects-grid');
-  if (!container) return;
-
-  container.innerHTML = projects
-    .map(
-      (p, i) => `
-    <article class="project-card reveal reveal-delay-${(i % 4) + 1}" aria-label="${p.title}">
-      <div class="project-card-top">
-        <span class="project-index">${String(i + 1).padStart(2, '0')}</span>
+  const el = $('#projects-grid');
+  if (!el) return;
+  el.innerHTML = projects.map((p, i) => `
+    <article class="project-card reveal reveal-delay-${(i % 4) + 1}">
+      <div class="project-top">
+        <span class="project-num">${String(i+1).padStart(2,'0')}</span>
         ${p.status ? `<span class="project-status">${p.status}</span>` : ''}
       </div>
-
       <div>
         <h3 class="project-title">${p.title}</h3>
-        <p class="project-role">
-          ${p.role}
-          ${p.roleNote ? `<span class="project-role-note"> — ${p.roleNote}</span>` : ''}
-        </p>
+        <p class="project-role">${p.role}${p.roleNote ? ` <span class="project-role-note">— ${p.roleNote}</span>` : ''}</p>
       </div>
-
-      <p class="project-description">${p.description}</p>
-
-      <div class="project-tags">
-        ${p.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
-      </div>
-
-      <div class="project-card-footer">
-        ${
-          p.url
-            ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn-launch">
-                <i class="ri-external-link-line"></i>
-                Launch Live Site
-               </a>`
-            : `<span class="btn-launch btn-launch-disabled" aria-disabled="true">
-                <i class="ri-archive-line"></i>
-                Archived — No Live URL
-               </span>`
+      <p class="project-desc">${p.description}</p>
+      <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+      <div class="project-foot">
+        ${p.url
+          ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn-launch"><i class="ri-external-link-line"></i> Launch Live Site</a>`
+          : `<span class="btn-launch btn-launch-off"><i class="ri-archive-line"></i> Archived — No Live URL</span>`
         }
       </div>
     </article>
-  `
-    )
-    .join('');
+  `).join('');
 }
 
-// ── Render Skills ─────────────────────────────────────────────
+/* ── Render Skills ── */
 function renderSkills() {
-  const container = $('#skills-container');
-  if (!container) return;
-
-  container.innerHTML = skills
-    .map(
-      (group, i) => `
-    <div class="skill-card reveal reveal-delay-${(i % 4) + 1}" role="region" aria-label="${group.category}">
-      <div class="skill-card-icon">
-        <i class="${group.icon}"></i>
-      </div>
-      <h3 class="skill-category">${group.category}</h3>
-      <ul class="skill-items" role="list">
-        ${group.items
-          .map((item) => `<li class="skill-item">${item}</li>`)
-          .join('')}
-      </ul>
+  const el = $('#skills-container');
+  if (!el) return;
+  el.innerHTML = skills.map((g, i) => `
+    <div class="skill-card reveal reveal-delay-${(i % 4) + 1}">
+      <div class="skill-icon"><i class="${g.icon}"></i></div>
+      <h3 class="skill-cat">${g.category}</h3>
+      <ul class="skill-list">${g.items.map(item => `<li>${item}</li>`).join('')}</ul>
     </div>
-  `
-    )
-    .join('');
+  `).join('');
 }
 
-// ── Render Certifications ─────────────────────────────────────
+/* ── Render Certifications ── */
 function renderCertifications() {
-  const container = $('#certs-grid');
-  if (!container) return;
-
-  container.innerHTML = certifications
-    .map(
-      (cert, i) => `
-    <article
-      class="cert-card reveal reveal-delay-${(i % 4) + 1}"
-      data-cert-category="${cert.category}"
-      aria-label="${cert.title}"
-    >
-      <div class="cert-image-wrap">
-        <img
-          src="${cert.image}"
-          alt="Certificate: ${cert.title}"
-          loading="lazy"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="cert-image-placeholder" style="display:none;">
-          <i class="ri-award-line"></i>
-          <span>Drop certificate image<br/>into assets/certs/</span>
+  const el = $('#certs-grid');
+  if (!el) return;
+  el.innerHTML = certifications.map((c, i) => {
+    const meta = certIcons[c.id] || { icon: 'ri-award-line', label: 'Certificate' };
+    return `
+    <article class="cert-card reveal reveal-delay-${(i % 4) + 1}" data-cert-category="${c.category}">
+      <div class="cert-illustration">
+        <div class="cert-illustration-bg"></div>
+        <div class="cert-dots"></div>
+        <div class="cert-illustration-content">
+          <i class="${meta.icon} cert-icon-large"></i>
+          <span class="cert-illustration-title">${meta.label}</span>
         </div>
       </div>
       <div class="cert-body">
-        <span class="cert-category-badge ${cert.category}">
-          ${cert.category === 'tech' ? '⚡ Tech & AI' : '🎓 Academic'}
-        </span>
-        <h3 class="cert-title">${cert.title}</h3>
-        <p class="cert-issuer">${cert.issuer}</p>
-        <p class="cert-detail">${cert.detail}</p>
+        <span class="cert-badge ${c.category}">${c.category === 'tech' ? '⚡ Tech & AI' : '🎓 Academic'}</span>
+        <h3 class="cert-title">${c.title}</h3>
+        <p class="cert-issuer">${c.issuer}</p>
+        <p class="cert-detail">${c.detail}</p>
       </div>
-    </article>
-  `
-    )
-    .join('');
+    </article>`;
+  }).join('');
 }
 
-// ── Certifications Tab Filter ─────────────────────────────────
+/* ── Cert tab filter ── */
 function initCertTabs() {
   const tabs = $$('.cert-tab');
   const grid = $('#certs-grid');
-
-  function filterCerts(activeFilter) {
-    tabs.forEach((tab) => {
-      tab.classList.toggle('active', tab.dataset.filter === activeFilter);
-    });
-
+  function filter(f) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === f));
     if (!grid) return;
-    const cards = $$('.cert-card', grid);
-
-    cards.forEach((card) => {
-      if (activeFilter === 'all') {
-        card.classList.remove('hidden');
-      } else {
-        const match = card.dataset.certCategory === activeFilter;
-        card.classList.toggle('hidden', !match);
-      }
+    $$('.cert-card', grid).forEach(card => {
+      card.classList.toggle('hidden', f !== 'all' && card.dataset.certCategory !== f);
     });
   }
+  tabs.forEach(t => t.addEventListener('click', () => filter(t.dataset.filter)));
+  filter('all');
+}
 
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      filterCerts(tab.dataset.filter);
+/* ── Scroll reveal ── */
+function initReveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
-  });
-
-  // Set default
-  filterCerts('all');
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  $$('.reveal').forEach(el => io.observe(el));
 }
 
-// ── Scroll Reveal (Intersection Observer) ────────────────────
-function initScrollReveal() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -60px 0px',
-    }
-  );
-
-  $$('.reveal').forEach((el) => observer.observe(el));
-}
-
-// ── Navbar Scroll Effect ──────────────────────────────────────
+/* ── Navbar scroll ── */
 function initNavbar() {
-  const navbar = $('#navbar');
-  if (!navbar) return;
-
-  let ticking = false;
-
+  const nav = $('#navbar');
+  if (!nav) return;
+  let t = false;
   window.addEventListener('scroll', () => {
-    if (!ticking) {
+    if (!t) {
       requestAnimationFrame(() => {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
-        ticking = false;
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+        t = false;
       });
-      ticking = true;
+      t = true;
     }
-  });
+  }, { passive: true });
 }
 
-// ── Mobile Menu ───────────────────────────────────────────────
+/* ── Mobile menu ── */
 function initMobileMenu() {
-  const hamburger = $('#nav-hamburger');
-  const mobileMenu = $('#mobile-menu');
-  const closeBtn = $('#mobile-close');
+  const btn  = $('#nav-hamburger');
+  const menu = $('#mobile-menu');
+  const cls  = $('#mobile-close');
+  if (!btn || !menu) return;
 
-  if (!hamburger || !mobileMenu || !closeBtn) return;
+  const open  = () => { menu.classList.add('open'); document.body.style.overflow = 'hidden'; btn.setAttribute('aria-expanded','true'); };
+  const close = () => { menu.classList.remove('open'); document.body.style.overflow = ''; btn.setAttribute('aria-expanded','false'); };
 
-  function openMenu() {
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    hamburger.setAttribute('aria-expanded', 'true');
+  btn.addEventListener('click', open);
+  cls?.addEventListener('click', close);
+  $$('a', menu).forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', e => e.key === 'Escape' && close());
+}
+
+/* ── Custom cursor ── */
+function initCursor() {
+  const dot  = $('#cursor-dot');
+  const ring = $('#cursor-ring');
+  if (!dot || !ring) return;
+  if (window.matchMedia('(hover:none)').matches) return;
+
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+  function tick() {
+    dot.style.left  = mx + 'px';
+    dot.style.top   = my + 'px';
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(tick);
   }
+  tick();
 
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-    hamburger.setAttribute('aria-expanded', 'false');
-  }
-
-  hamburger.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-
-  $$('a', mobileMenu).forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+  const hover = $$('a, button, .project-card, .skill-card, .cert-card, .btn-launch');
+  hover.forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
   });
 }
 
-// ── Active Nav Link Highlight ─────────────────────────────────
-function initActiveSectionTracking() {
-  const sections = $$('section[id]');
-  const navLinks = $$('.nav-links a[href^="#"]');
+/* ── Canvas background: particles + grid + mouse repel ── */
+function initCanvas() {
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles, mouse = { x: -9999, y: -9999 };
+  const COUNT = window.innerWidth < 600 ? 55 : 110;
+  const CONNECT_DIST = 130;
+  const MOUSE_DIST   = 120;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach((link) => {
-            link.style.color = link.getAttribute('href') === `#${id}`
-              ? 'var(--text-primary)'
-              : '';
-          });
-        }
-      });
-    },
-    { rootMargin: '-40% 0px -55% 0px' }
-  );
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
 
-  sections.forEach((section) => observer.observe(section));
-}
+  function Particle() {
+    this.x  = Math.random() * W;
+    this.y  = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.35;
+    this.vy = (Math.random() - 0.5) * 0.35;
+    this.r  = Math.random() * 1.5 + 0.4;
+    // mix of indigo, cyan, violet, white
+    const palette = [
+      'rgba(99,102,241,',
+      'rgba(34,211,238,',
+      'rgba(167,139,250,',
+      'rgba(241,243,250,',
+    ];
+    this.color = palette[Math.floor(Math.random() * palette.length)];
+  }
 
-// ── Typed Effect on Hero Badge ────────────────────────────────
-function initHeroTyped() {
-  const badge = $('.hero-badge-text');
-  if (!badge) return;
+  function initParticles() {
+    particles = Array.from({ length: COUNT }, () => new Particle());
+  }
 
-  const texts = [
-    'Full-Stack Web Developer',
-    'PCM + IP · Grade 12',
-    'Prompt Engineer · CBSE',
-    'Building since Standard 5',
-  ];
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
 
-  let textIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let delay = 110;
+    // subtle grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.018)';
+    ctx.lineWidth = 1;
+    const step = 64;
+    for (let x = 0; x < W; x += step) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = 0; y < H; y += step) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
 
-  function type() {
-    const current = texts[textIndex];
+    // update + draw particles
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
 
-    if (!isDeleting) {
-      badge.textContent = current.slice(0, charIndex + 1);
-      charIndex++;
-      delay = 100;
-
-      if (charIndex === current.length) {
-        isDeleting = true;
-        delay = 2000;
+      // gentle mouse repulsion
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < MOUSE_DIST) {
+        const force = (MOUSE_DIST - dist) / MOUSE_DIST * 0.018;
+        p.vx += (dx / dist) * force;
+        p.vy += (dy / dist) * force;
       }
-    } else {
-      badge.textContent = current.slice(0, charIndex - 1);
-      charIndex--;
-      delay = 55;
 
-      if (charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        delay = 400;
+      // dampen velocity
+      p.vx *= 0.994;
+      p.vy *= 0.994;
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // wrap edges
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      // draw dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + '0.8)';
+      ctx.fill();
+
+      // draw connecting lines
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const ex = p.x - q.x;
+        const ey = p.y - q.y;
+        const d  = Math.sqrt(ex * ex + ey * ey);
+        if (d < CONNECT_DIST) {
+          const alpha = (1 - d / CONNECT_DIST) * 0.18;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(99,102,241,${alpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
       }
     }
 
-    setTimeout(type, delay);
+    requestAnimationFrame(draw);
   }
 
-  setTimeout(type, 1200);
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  }, { passive: true });
+
+  window.addEventListener('resize', () => { resize(); initParticles(); }, { passive: true });
+
+  resize();
+  initParticles();
+  draw();
 }
 
-// ── Smooth Scroll for Anchor Links ───────────────────────────
-function initSmoothScroll() {
-  $$('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-      const target = $(targetId);
+/* ── Typed badge ── */
+function initTyped() {
+  const el = $('.hero-badge-text');
+  if (!el) return;
+  const words = ['Full-Stack Web Developer','PCM + IP · Grade XII','Prompt Engineer','Building Since Standard 5','Open to Opportunities'];
+  let wi = 0, ci = 0, del = false, delay = 110;
+  function tick() {
+    const w = words[wi];
+    el.textContent = del ? w.slice(0, ci - 1) : w.slice(0, ci + 1);
+    if (!del) {
+      ci++;
+      delay = 95;
+      if (ci === w.length) { del = true; delay = 2200; }
+    } else {
+      ci--;
+      delay = 50;
+      if (ci === 0) { del = false; wi = (wi + 1) % words.length; delay = 380; }
+    }
+    setTimeout(tick, delay);
+  }
+  setTimeout(tick, 2400);
+}
+
+/* ── Smooth anchor scroll ── */
+function initScroll() {
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = $(id);
       if (target) {
         e.preventDefault();
-        const offset = 80; // account for fixed nav
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 78, behavior: 'smooth' });
       }
     });
   });
 }
 
-// ── Boot: DOMContentLoaded ────────────────────────────────────
+/* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Render all data-driven sections
+  initCanvas();
   renderProjects();
   renderSkills();
   renderCertifications();
-
-  // 2. Init UI interactions
   initCertTabs();
-  initScrollReveal();
   initNavbar();
   initMobileMenu();
-  initActiveSectionTracking();
-  initHeroTyped();
-  initSmoothScroll();
-
-  // 3. Re-run scroll reveal after all renders
-  // (re-query after innerHTML injection)
+  initCursor();
+  initTyped();
+  initScroll();
   requestAnimationFrame(() => {
-    $$('.reveal').forEach((el) => {
-      if (!el.classList.contains('visible')) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92) {
-          el.classList.add('visible');
-        }
-      }
+    initReveal();
+    $$('.reveal').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.95) el.classList.add('visible');
     });
   });
 });
