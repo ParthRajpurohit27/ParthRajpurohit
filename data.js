@@ -1,9 +1,21 @@
 export const projects = [
   {
     id: 1,
+    title: "Lotas Makeup Studio & Salon Website",
+    role: "Expertly built by Parth.",
+    roleNote: "FUlly working Perfect Website",
+    url: "https://lotasmakeupstudio.vercel.app/",
+    description:
+      "An elegant, high-performance web platform dedicated to the Lotas Makeup Studio & Salon.",
+    tags: ["HTML", "CSS", "JavaScript", "Perfectly works","Creative design"],
+    status: "Running Smoothly",
+  }
+  
+  {
+    id: 2,
     title: "IGPS Bhopal Website",
     role: "Lead Developer",
-    roleNote: "Built for my father's institution",
+    roleNote: "Built Indira Gandhi Public School",
     url: "https://igpsbhopal.vercel.app",
     description:
       "A comprehensive, lightning-fast school portal designed with semantic web structures to optimize performance, accessibility, and community engagement.",
@@ -11,7 +23,7 @@ export const projects = [
     status: "Always Active",
   },
   {
-    id: 2,
+    id: 3,
     title: "Perfect Study Tracker",
     role: "Solo Creator & Architect",
     roleNote: null,
@@ -22,7 +34,7 @@ export const projects = [
     status: "Tracks Study Progress",
   },
   {
-    id: 3,
+    id: 4,
     title: "Just Movie Download",
     role: "Full-Stack Integration Developer",
     roleNote: "First connection of Bot",
@@ -33,7 +45,7 @@ export const projects = [
     status: "Fully Functional",
   },
   {
-    id: 4,
+    id: 5,
     title: "AVIORCART",
     role: "Founder & Operations Engineer",
     roleNote: "E-Commerce Platform",
