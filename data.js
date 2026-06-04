@@ -1,10 +1,9 @@
 export const projects = [
-  
   {
     id: 1,
     title: "IGPS Bhopal Website",
     role: "Lead Developer",
-    roleNote: "Built Indira Gandhi Public School",
+    roleNote: "Built for my father's institution",
     url: "https://igpsbhopal.vercel.app",
     description:
       "A comprehensive, lightning-fast school portal designed with semantic web structures to optimize performance, accessibility, and community engagement.",
