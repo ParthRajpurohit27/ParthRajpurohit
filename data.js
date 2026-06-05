@@ -4,8 +4,7 @@ export const projects = [
     title: "Lotas Makeup Studio & Salon Website",
     role: "Expertly Built by Parth",
     roleNote: "Fully working professional website",
-    url: "https://lotasmakeupstudio.vercel.app", 
-     url: "https://lotas.vercel.app",
+    url: "https://lotasmakeupstudio.vercel.app",
     description:
       "A fully functional professional website for Lotas Makeup Studio & Salon. Built with a clean, elegant design focused on showcasing services, building client trust, and driving real-world bookings.",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "UI/UX"],
@@ -65,6 +64,17 @@ export const projects = [
       "Website to help farmers in doing all of their work smartly and make them do it very perfectly done",
     tags: ["API Integration","HTML5" , "CSS","JS"],
     status: "All tools Working",
+  },
+  {
+    id: 5,
+    title: "Lotas website second ",
+    role: "Makeup studio website",
+    roleNote: "old one",
+    url: "https://lotas.vercel.app",
+    description:
+      "long one",
+    tags: ["HTML" , "CSS","JavaScript"],
+    status: "In Progress not completed yet",
   },
 ];
 
