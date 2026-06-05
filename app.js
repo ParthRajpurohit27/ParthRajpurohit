@@ -319,6 +319,8 @@ function initScroll() {
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
+
+  // Render all data first so every .reveal element exists in DOM
   renderProjects();
   renderSkills();
   renderCertifications();
@@ -328,10 +330,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursor();
   initTyped();
   initScroll();
+
+  // Double rAF: first frame lets browser do layout,
+  // second ensures getBoundingClientRect is accurate for injected cards
   requestAnimationFrame(() => {
-    initReveal();
-    $$('.reveal').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.95) el.classList.add('visible');
+    requestAnimationFrame(() => {
+      $$('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+      initReveal();
     });
   });
 });
