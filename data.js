@@ -55,7 +55,7 @@ export const projects = [
     status: "Archived Venture — Learning Milestone",
   },
    {
-    id: 6,
+    id: 5,
     title: "Farmer Genius ",
     role: "Funcitional Website with tools",
     roleNote: "Perfectly Designed",
