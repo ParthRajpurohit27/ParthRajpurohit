@@ -14,7 +14,7 @@ export const projects = [
     id: 1,
     title: "IGPS Bhopal Website",
     role: "Lead Developer",
-    roleNote: "Built for my father's institution",
+    roleNote: "Built for a School",
     url: "https://igpsbhopal.vercel.app",
     description:
       "A comprehensive, lightning-fast school portal designed with semantic web structures to optimize performance, accessibility, and community engagement.",
@@ -53,6 +53,17 @@ export const projects = [
       "Bootstrapped a highly functional, nationwide Shopify e-commerce business with zero initial funds. Managed end-to-end setups: completed full digital video and PAN verifications, integrated PayU payment routing, and established logistics pipelines via Delhivery. Successfully fulfilled and shipped consumer orders across Madhya Pradesh, Gujarat, Assam, Bengal, Haryana, and Rajasthan at a profit.",
     tags: ["Shopify Ecosystem", "PayU Gateway", "Delhivery API", "Supply Chain Logistics"],
     status: "Archived Venture — Learning Milestone",
+  },
+   {
+    id: 6,
+    title: "Farmer Genius ",
+    role: "Funcitional Website with tools",
+    roleNote: "Perfectly Designed",
+    url: "https://farmergenius.vercel.app",
+    description:
+      "Website to help farmers in doing all of their work smartly and make them do it very perfectly done",
+    tags: ["API Integration","HTML5" , "CSS","JS"],
+    status: "All tools Working",
   },
 ];
 
