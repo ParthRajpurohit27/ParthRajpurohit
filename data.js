@@ -1,30 +1,17 @@
 export const projects = [
 
+   
     {
-    id: 4,
-    title: "OTP Website",
-    role: "Expertly Built by Parth",
-    roleNote: "Not for public use",
-    url: "https://myhacklab.vercel.app",
+    id: 5,
+    title: "Lotas website second ",
+    role: "Makeup studio website",
+    roleNote: "old one",
+    url: "https://lotas.vercel.app",
     description:
-      "Nothing to say. Just for me",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive Design", "Python" ,  "UI/UX"],
-    status: "Catch Me",
+      "long one",
+    tags: ["HTML" , "CSS","JavaScript"],
+    status: "In Progress not completed yet",
   },
-
-   {
-    id: 4,
-    title: "TicTakToe game",
-    role: "Made for fun",
-    roleNote: "works with bot mode and can be also switched to  2 player mode",
-    url: "https://xoplay.vercel.app",
-    description:
-      "Challenge a friend in local two-player mode or test your skills against the computer with adjustable difficulty levels. Enjoy a clean, responsive interface perfect for a quick match on any device.",
-    tags: ["HTML", "CSS3", "JavaScript", "Responsive Design", "UI/UX"],
-    status: "Full of effects",
-  },
-
-  
   {
     id: 5,
     title: "Lotas Makeup Studio & Salon Website",
@@ -91,17 +78,31 @@ export const projects = [
     tags: ["API Integration","HTML5" , "CSS","JS"],
     status: "All tools Working",
   },
-  {
-    id: 5,
-    title: "Lotas website second ",
-    role: "Makeup studio website",
-    roleNote: "old one",
-    url: "https://lotas.vercel.app",
+     {
+    id: 4,
+    title: "OTP Website",
+    role: "Expertly Built by Parth",
+    roleNote: "Not for public use",
+    url: "https://myhacklab.vercel.app",
     description:
-      "long one",
-    tags: ["HTML" , "CSS","JavaScript"],
-    status: "In Progress not completed yet",
+      "Nothing to say. Just for me",
+    tags: ["HTML", "CSS", "JavaScript", "Responsive Design", "Python" ,  "UI/UX"],
+    status: "Catch Me",
   },
+
+   {
+    id: 4,
+    title: "TicTakToe game",
+    role: "Made for fun",
+    roleNote: "works with bot mode and can be also switched to  2 player mode",
+    url: "https://xoplay.vercel.app",
+    description:
+      "Challenge a friend in local two-player mode or test your skills against the computer with adjustable difficulty levels. Enjoy a clean, responsive interface perfect for a quick match on any device.",
+    tags: ["HTML", "CSS3", "JavaScript", "Responsive Design", "UI/UX"],
+    status: "Full of effects",
+  },
+
+
 ];
 
 export const skills = [
