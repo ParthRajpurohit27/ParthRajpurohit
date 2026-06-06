@@ -1,4 +1,18 @@
 export const projects = [
+
+   {
+    id: 5,
+    title: "TicTakToe game",
+    role: "Made for fun",
+    roleNote: "works with bot mode and can be also switched to  2 player mode",
+    url: "https://xoplay.vercel.app",
+    description:
+      "Challenge a friend in local two-player mode or test your skills against the computer with adjustable difficulty levels. Enjoy a clean, responsive interface perfect for a quick match on any device.",
+    tags: ["HTML", "CSS3", "JavaScript", "Responsive Design", "UI/UX"],
+    status: "Full of effects",
+  },
+
+  
   {
     id: 5,
     title: "Lotas Makeup Studio & Salon Website",
