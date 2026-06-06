@@ -3,7 +3,7 @@ export const projects = [
    
     {
     id: 5,
-    title: "Lotas website second ",
+    title: "Lotas website main ",
     role: "Makeup studio website",
     roleNote: "old one",
     url: "https://lotas.vercel.app",
@@ -14,14 +14,14 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Lotas Makeup Studio & Salon Website",
+    title: "Lotas Makeup Studio & Salon Website 2",
     role: "Expertly Built by Parth",
     roleNote: "Fully working professional website",
     url: "https://lotasmakeupstudio.vercel.app",
     description:
       "A fully functional professional website for Lotas Makeup Studio & Salon. Built with a clean, elegant design focused on showcasing services, building client trust, and driving real-world bookings.",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "UI/UX"],
-    status: "Running Smoothly",
+    status: "Running Smoothly but not main",
   },
   {
     id: 1,
