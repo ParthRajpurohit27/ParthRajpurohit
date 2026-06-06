@@ -1,7 +1,7 @@
 export const projects = [
 
     {
-    id: 5,
+    id: 4,
     title: "OTP Website",
     role: "Expertly Built by Parth",
     roleNote: "Not for public use",
@@ -13,7 +13,7 @@ export const projects = [
   },
 
    {
-    id: 5,
+    id: 4,
     title: "TicTakToe game",
     role: "Made for fun",
     roleNote: "works with bot mode and can be also switched to  2 player mode",
