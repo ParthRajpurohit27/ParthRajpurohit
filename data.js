@@ -1,5 +1,17 @@
 export const projects = [
 
+    {
+    id: 5,
+    title: "OTP Website",
+    role: "Expertly Built by Parth",
+    roleNote: "Not for public use",
+    url: "https://myhacklab.vercel.app",
+    description:
+      "Nothing to say. Just for me",
+    tags: ["HTML", "CSS", "JavaScript", "Responsive Design", "Python" ,  "UI/UX"],
+    status: "Catch Me",
+  },
+
    {
     id: 5,
     title: "TicTakToe game",
