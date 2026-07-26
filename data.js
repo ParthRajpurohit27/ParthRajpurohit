@@ -60,12 +60,11 @@ export const projects = [
     id: 4,
     title: "AVIORCART",
     role: "Founder & Operations Engineer",
-    roleNote: "E-Commerce Platform",
+    roleNote: "https://devloperparth.itch.io/aviorcart"
     url: "https://aviorcart.vercel.app",
     
     description:
-      "Download link - https://devloperparth.itch.io/aviorcart
-       Bootstrapped a highly functional, nationwide Shopify e-commerce business with zero initial funds. Managed end-to-end setups: completed full digital video and PAN verifications, integrated PayU payment routing, and established logistics pipelines via Delhivery. Successfully fulfilled and shipped consumer orders across Madhya Pradesh, Gujarat, Assam, Bengal, Haryana, and Rajasthan at a profit.",
+      "Bootstrapped a highly functional, nationwide Shopify e-commerce business with zero initial funds. Managed end-to-end setups: completed full digital video and PAN verifications, integrated PayU payment routing, and established logistics pipelines via Delhivery. Successfully fulfilled and shipped consumer orders across Madhya Pradesh, Gujarat, Assam, Bengal, Haryana, and Rajasthan at a profit.",
     tags: ["Shopify Ecosystem", "PayU Gateway", "Delhivery API", "Supply Chain Logistics"],
     status: "Archived Venture — Learning Milestone",
   },
