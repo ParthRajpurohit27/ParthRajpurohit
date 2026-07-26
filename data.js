@@ -60,7 +60,7 @@ export const projects = [
     id: 4,
     title: "AVIORCART",
     role: "Founder & Operations Engineer",
-    roleNote: "https://devloperparth.itch.io/aviorcart"
+    roleNote: "E-commerce platform"
     url: "https://aviorcart.vercel.app",
     
     description:
