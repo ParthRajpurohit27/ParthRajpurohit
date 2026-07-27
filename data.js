@@ -60,9 +60,8 @@ export const projects = [
     id: 4,
     title: "AVIORCART",
     role: "Founder & Operations Engineer",
-    roleNote: "E-commerce platform"
+    roleNote: "E-Commerce Platform",
     url: "https://aviorcart.vercel.app",
-    
     description:
       "Bootstrapped a highly functional, nationwide Shopify e-commerce business with zero initial funds. Managed end-to-end setups: completed full digital video and PAN verifications, integrated PayU payment routing, and established logistics pipelines via Delhivery. Successfully fulfilled and shipped consumer orders across Madhya Pradesh, Gujarat, Assam, Bengal, Haryana, and Rajasthan at a profit.",
     tags: ["Shopify Ecosystem", "PayU Gateway", "Delhivery API", "Supply Chain Logistics"],
